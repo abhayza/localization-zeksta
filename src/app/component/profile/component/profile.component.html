@@ -1,0 +1,44 @@
+<div class='loader_container' *ngIf="loading"><div class="loader">Loading...</div></div>
+<mat-button-toggle-group style="float:right" name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle value="feature">Feature</mat-button-toggle>
+  <mat-button-toggle value="support">Support</mat-button-toggle>
+  <mat-button-toggle [routerLink]="['/login']" value="sign_in">Sign In</mat-button-toggle>
+</mat-button-toggle-group>
+
+<div class="main-wrapper" fxLayout="row" fxFlexAlign="stretch" fxLayoutAlign="center center" fxFlexFill> 
+    <mat-card fxFlex="25" class="box">
+      <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>Profile</mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="profileForm" (ngSubmit)="updateProfile(profileForm)">
+        <mat-card-content>
+          <input type="hidden" formControlName="_id"> 
+          <mat-form-field class="form-input-field" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstname" matInput placeholder="Firstname">
+            <mat-error *ngIf="myError('firstname', 'required')">First name is required</mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="form-input-field" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastname" matInput placeholder="Lastname">
+            <mat-error *ngIf="myError('lastname', 'required')">Last name is required</mat-error> 
+          </mat-form-field>
+          <mat-form-field class="form-input-field" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="Email" readonly>
+            <mat-error *ngIf="myError('email', 'required')">Email is required</mat-error>
+            <mat-error *ngIf="myError('email', 'email')">Email Invalid</mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-input-field" appearance="outline">
+            <mat-label>Mobile Number</mat-label>
+            <input formControlName="mobile_no" matInput placeholder="Mobile Number">
+            <mat-error *ngIf="myError('mobile_no', 'required')">Mobile number is required</mat-error> 
+          </mat-form-field> 
+        </mat-card-content>
+        <button mat-raised-button type="submit" style="width : 10em;" color="accent">Update Profile</button>
+        <a [routerLink]="['/']"><button mat-raised-button style="width : 10em; float: right;" color="primary">Back</button></a>
+      </form> 
+    </mat-card> 
+</div>
+
+

@@ -1,0 +1,72 @@
+.example-icon {
+    padding: 0 14px;
+  }    
+  .example-spacer {
+    flex: 1 1 auto;
+  }    
+  .example-card {
+    max-width: 400px;
+    width: 75%;
+    margin: 10px auto;
+  }    
+  .example-header-image {
+    background-image: image("./assets/logo.png");
+    background-size: cover;
+  }    
+  .main-div {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .example-full-width {
+    width: 100%;
+  }
+
+  .mat-card:not([class*=mat-elevation-z]) {
+    width: -webkit-fill-available;
+    border: 1px gray solid;
+}
+
+mat-card.mat-card.mat-focus-indicator.mat-elevation-z0 {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 78%), 0px 1px 1px 0px rgb(0 0 0 / 77%), 0px 1px 3px 0px rgb(0 0 0 / 76%);
+    border-radius: inherit;
+}
+.container{
+    margin: 50px;
+}
+  
+.main-div{
+    height: 50vh;
+    display: list-item!important;
+    justify-content: center;
+    align-items: center;
+}
+.language-card{
+    margin-top: 10px;
+    padding: 15px;
+}
+.language-button{
+    float: right;
+}
+.language-header{
+    display: flex;
+}
+.header-select{
+    padding-left: 100px;
+    padding-top: 10px;
+}
+.header-title{
+    margin-top: 20px;   
+}
+.imports-form{
+    display: flex;
+}
+.imports-header{
+    margin-left: 50px; 
+    margin-top: 15px;
+    font-size: large;
+}
+.imports-field{
+    margin-left: 50px;
+}

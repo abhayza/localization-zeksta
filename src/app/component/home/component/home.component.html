@@ -1,0 +1,47 @@
+<div class="row flex">
+  <mat-button-toggle-group class="top-button-toggle" name="fontStyle" value="dashboard" aria-label="Font Style">
+    <mat-button-toggle [routerLink]="['/']" value="dashboard">Dashboard</mat-button-toggle>
+    <mat-button-toggle [routerLink]="['/language']" value="translator">Translator</mat-button-toggle>
+    <!-- <mat-button-toggle [routerLink]="['/login']" value="sign_in">My Account</mat-button-toggle> -->
+    <button mat-button [matMenuTriggerFor]="menu">My Account</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/profile']">Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </mat-button-toggle-group>
+</div><br><br><br>
+<div class="content-first">
+    <button mat-raised-button class="top-button-toggle" [routerLink]="['/project/add']"  color="primary">Add Project</button>
+</div>
+<div class="content" fxLayout="row">
+  <h2>List Projects</h2>
+</div><hr>
+
+<div *ngIf="projects" class="content" fxFlexFill fxLayout="row">
+  <div *ngIf="projects" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let project of projects">
+      <mat-card class="example-card"> 
+        <mat-card-title>{{project.project_name}}</mat-card-title>
+        <mat-card-content>
+          <p>{{ (project.project_description.length>250)? (project.project_description | slice:0:250)+'..':(project.project_description) }}</p>
+        </mat-card-content> 
+        <mat-card-actions>
+          <button mat-button [routerLink]="['/project/edit/'+ project._id]" color="primary"><mat-icon>create</mat-icon></button>
+          <button mat-button color="warn" (click)="deleteProject(project._id)"><mat-icon>delete</mat-icon></button>
+        </mat-card-actions> 
+      </mat-card>
+    </div>
+  </div> 
+   
+</div> 
+<div *ngIf="projects == false" class="content" fxFlexFill fxLayout="row">
+  <div class="empty-project">
+    <div style="width: auto;">
+      <mat-card class="example-card">  
+        <mat-card-content>
+          <p>No Project Found</p>
+        </mat-card-content>  
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!-- <mat-button-toggle-group class="top-button-toggle" name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="feature">Feature</mat-button-toggle>
+    <mat-button-toggle value="support">Support</mat-button-toggle>
+    <mat-button-toggle [routerLink]="['/login']" value="sign_in">Sign In</mat-button-toggle>
+</mat-button-toggle-group> -->
+
+<div class="main-wrapper" fxLayout="row" fxFlexAlign="stretch" fxLayoutAlign="center center" fxFlexFill> 
+    <mat-card fxFlex="25" class="box">
+      <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>Add Language</mat-card-title>
+      </mat-card-header> 
+      <form [formGroup]="languageForm" (ngSubmit)="addLanguage(languageForm)">
+        <mat-card-content>
+          <mat-form-field class="form-input-field" appearance="outline">
+            <mat-label>Language Name</mat-label>
+            <input formControlName="language_name" matInput placeholder="Language Name">
+            <mat-error *ngIf="myError('language_name', 'required')">Language name is required</mat-error>
+            <mat-error *ngIf="myError('language_name', 'maxlength')">Limit exceed</mat-error>
+          </mat-form-field> 
+          <mat-form-field class="form-input-field" appearance="outline">
+            <mat-label>Language Description</mat-label>
+            <textarea formControlName="language_description" matInput cols="30" rows="10" placeholder="Language Description"></textarea>
+            <mat-error *ngIf="myError('language_description', 'required')">Language Description is required</mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button type="submit" style="width : 10em;" color="accent">Add Language</button>
+        <a [routerLink]="['/']"><button mat-raised-button style="width : 10em; float: right;" color="primary">Back</button></a>
+      </form>
+    </mat-card> 
+</div>
